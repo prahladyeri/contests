@@ -1,3 +1,3 @@
-# Open Kattis
+# Contests
 
-This repository contains solutions to problems on [open kattis](open.kattis.com/problems).
+This repository contains solutions to various programming puzzles and contests.
