@@ -1,0 +1,40 @@
+<?php
+$n;
+fscanf(STDIN, "%d", $n);
+$min_days = 999;
+//for p in range(1, n+1): # these many printing days
+for ($p=1; $p<$n+1; $p++) {
+    $pp = 2 ** ($p-1); # total printers created
+    $st = ceil($n/$pp); # no. of days to create statues
+    $tot_days = $st + $p -1;
+    if ($tot_days <= $min_days) $min_days = $tot_days;
+}
+echo $min_days;
+
+/*
+n=1
+p=1     1       =1 printers (2^0)       = 1/1 = 1 days
+
+n= 5  (4)
+p= 1	1,1,1,1,1   =1 printer(2**0)    =5/1 = 5 days
+p=2		0,2,2,2
+p=3		0,0,4,4
+
+n=7   (4)
+p=1		1,1,1,1,1,1,1   =1 printer (2^0)    = 7 / 1 =7 days
+p=2		0,2,2,2,2       =2 printers (2^1)
+p=3		0,0,3,3,3
+p=4		0,0,0,4,4       =8 printers (2^3)   =7/8    =1 days
+p=5		0,0,0,0,5,5     =16 printers  (2^4)  =7/16    =1 day
+p=6		0,0,0,0,0,6,6       =32 printers (2^4)
+p=7		0,0,0,0,0,0,7
+
+n=6 (4)
+p=1		1,1,1,1,1,1
+p=2		0,2,2,2
+p=3		0,0,3,3
+p=4		0,0,0,4,4
+p=5		0,0,0,0,5,5
+p=6		0,0,0,0,0,6
+"""
+*/
