@@ -1,9 +1,6 @@
 import math
 
 n = int(input())
-# if n == 1:
-    # print(1)
-    # exit()
 min_days = 999
 for p in range(1, n+1): # these many printing days
     #pp = 1 # no. of printers
