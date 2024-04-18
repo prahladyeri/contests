@@ -1,38 +1,44 @@
 import java.util.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
 
 class lyklagangriti {
 	
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		String s = sc.nextLine();
-		Stack<Character> l = new Stack<>();
-		Stack<Character> r = new Stack<>();
+	public static void main(String[] args) throws IOException {
+		//Scanner sc = new Scanner(System.in);
+		BufferedReader bi = new BufferedReader(new InputStreamReader(System.in));
+		String s = bi.readLine();
+
+		//String s = sc.nextLine();
+		Deque<Character> l = new ArrayDeque<Character>();
+		Deque<Character> r = new ArrayDeque<Character>();
 		for(int i=0;i<s.length();i++) {
 			char c = s.charAt(i);
 			char item;
 			switch(c) {
 				case 'L':
-					item = l.pop();
-					r.push(item);
+					item = l.pollLast();
+					r.addFirst(item);
 					break;
 				case 'R':
-					item =r.pop();
-					l.push(item);
+					item =r.pollFirst();
+					l.addLast(item);
 					break;
 				case 'B':
-					l.pop();
+					l.pollLast();
 					break;
 				default:
-					l.push(c);
+					l.addLast(c);
 			}
 		}
+		StringBuilder sb  = new StringBuilder(l.size() + r.size());
 		for(char c : l) {
-			System.out.print(c);
+			sb.append(c);
 		}
-		while(r.size() > 0) {
-			char c = r.pop();
-			System.out.print(c);
+		for(char c : r) {
+			sb.append(c);
 		}
-		System.out.println("");
+		System.out.println(sb);
 	}
 }
