@@ -1,5 +1,5 @@
 ```
-This repository contains solutions to various programming puzzles and contests I try to solve on these platforms:
+This repository contains solutions to various programming exercises I try to solve from here:
 
 leetcode.com
 hackerrank.com
